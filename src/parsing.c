@@ -75,7 +75,7 @@ void	char_in(char **av)
 		j = 0;
 		while (av[i][j])
 		{
-			if (!ft_isdigit(av[i][j]))
+			if (!ft_isdigit_mod(av[i][j]))
 			{
 				ft_putstr_fd(ERR_STUPID, 2);
 				exit(1);
@@ -85,4 +85,12 @@ void	char_in(char **av)
 		i++;
 	}
 
+}
+
+int	ft_isdigit_mod(int c)
+{
+	if ((c > 47 && c < 58) || c == 42 || c == 45)
+		return (1);
+	else
+		return (0);
 }

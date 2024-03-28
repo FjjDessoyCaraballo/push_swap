@@ -33,24 +33,24 @@ void	push_swap(char **argv, t_stack **stack)
 	}
 	(*stack)->len = gimme_length(*stack);
 	ft_printf("Length: %i\n", (*stack)->len);
-	instructions(stack);
+	// instructions(stack);
 	retrieve_stack(*stack);
 	free_ll(stack); // not necessary, just for leaks
 }
 
-void	instructions(t_stack **stack)
-{
-	if ((*stack)->len <= 3)
-	{
+// void	instructions(t_stack **stack)
+// {
+// 	if ((*stack)->len <= 3)
+// 	{
 		
-	}
-	if ((*stack)->len <= 5)
-	{
+// 	}
+// 	if ((*stack)->len <= 5)
+// 	{
 
-	}
-//	else // for one number
+// 	}
+// //	else // for one number
 
-}
+// }
 
 void    retrieve_stack(t_stack *stack)//DELETE BEFORE SUBMIT
 {

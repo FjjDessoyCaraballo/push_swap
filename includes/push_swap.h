@@ -64,6 +64,7 @@ void		parse_args(char **av);
 char		**check_arg(int argc, char **argv, bool split);
 void		repeat_num(char **av);
 void		char_in(char **av);
+int			ft_isdigit_mod(int c);
 
 /* in utils.c */
 int			add_node(t_stack **stack, int value);
