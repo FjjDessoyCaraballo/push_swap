@@ -10,3 +10,20 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+int	ra(int print)
+{
+	if (print)
+		ft_printf("ra\n");
+}
+
+int rb(int print)
+{
+	if (print)
+		ft_printf("rb\n");
+}
+
+int rr(int print)
+{
+	if (print)
+		ft_printf("rr\n");
+}

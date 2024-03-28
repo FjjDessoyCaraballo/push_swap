@@ -17,6 +17,29 @@ void	parse_args(char **av)
 	repeat_num(av);
 	char_in(av);
 }
+
+char	**check_arg(int argc, char **argv, bool split)
+{
+	if (argc < 2)
+	{
+		ft_putstr_fd(ERR_ARG, 2);
+		exit(1);
+	}
+	if (argc == 2)
+	{	
+		argv = ft_split(argv[1], ' ');
+		split = true;
+		if (!argv)
+		{
+			free_array(argv);
+			exit(1);
+		}
+	}
+	else
+		argv = argv + 1;
+	return (argv);
+}
+
 void	repeat_num(char **av)
 {
 	int	i;
@@ -29,7 +52,7 @@ void	repeat_num(char **av)
 		a = i + 1;
 		while (av[a])
 		{
-			if (!ft_strncmp(av[a], av[i], 11))
+			if (!ft_strncmp(av[a], av[i], sizeof(int)))
 			{
 				ft_putstr_fd(ERR_REP, 2);
 				exit(1);

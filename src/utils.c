@@ -40,6 +40,9 @@ int	add_node(t_stack **stack, int value)
 
 t_stack	*list_last(t_stack *lst)
 {
+	size_t	i;
+
+	i = 0;
 	while (lst)
 	{
 		if (!lst->next)
@@ -47,6 +50,21 @@ t_stack	*list_last(t_stack *lst)
 		lst = lst->next;
 	}
 	return (lst);
+}
+
+int	gimme_length(t_stack *lst)
+{
+	size_t	i;
+
+	i = 1;
+	while (lst)
+	{
+		if (!lst->next)
+			return (i);
+		lst = lst->next;
+		i++;
+	}
+	return (i);
 }
 
 void free_ll(t_stack **stack)

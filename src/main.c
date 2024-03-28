@@ -15,30 +15,20 @@
 int	main(int argc, char **argv)
 {
 	t_stack	*stack;
+	bool	split;
+	// int		size;
 
+	split = false;
 	stack = NULL;
-	if (argc < 2)
-	{
-		ft_putstr_fd(ERR_ARG, 2);
-		exit(1);
-	}
-	push_swap(argc, argv, &stack);
+	argv = check_arg(argc, argv, split);
+	parse_args(argv);
+	push_swap(argv, &stack);
+	if (split == true)
+		free_array(argv);
 	return (0);
 }
 
 /*
-*sa (swap a): Swap the first 2 elements at the top of stack a.
-Do nothing if there is only one or no elements.
-Where: Head will become next and next will become head
-
-
-*sb (swap b): Swap the first 2 elements at the top of stack b.
-Do nothing if there is only one or no elements.
-
-
-*ss : sa and sb at the same time.
-
-
 *pa (push a): Take the first element at the top of b and put it at the top of a.
 Do nothing if b is empty.
 

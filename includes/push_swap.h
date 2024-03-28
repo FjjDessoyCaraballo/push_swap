@@ -44,6 +44,7 @@ typedef struct s_stack
 {
 	size_t			i;
 	size_t			j;
+	int				len;
 	int				nb;
 	struct s_stack	*next;
 	struct s_stack	*prev;
@@ -54,23 +55,30 @@ typedef struct s_stack
 /*************************************************/
 
 /* in push_swap.c */
-void		push_swap(int argc, char **argv, t_stack **stack);
+void		push_swap(char **argv, t_stack **stack);
+void		instructions(t_stack **stack);
+void    	retrieve_stack(t_stack *stack); // TAKE THIS OUT!!!
 
 /* in parsing.c */
 void		parse_args(char **av);
+char		**check_arg(int argc, char **argv, bool split);
 void		repeat_num(char **av);
 void		char_in(char **av);
 
 /* in utils.c */
 int			add_node(t_stack **stack, int value);
 t_stack		*list_last(t_stack *lst);
+int			gimme_length(t_stack *lst);
 void 		free_ll(t_stack **stack);
 
 /* in error.c */
 void		error_handling(t_stack **stack, int num);
 
+/* in ss.c */
+void	swap(t_stack **stack);
+void	sa(t_stack **stack);
+void	sb(t_stack **stack);
+void	ss(t_stack **stack);
 
-/* extra */
-void    	retrieve_stack(t_stack *stack);
 
 #endif

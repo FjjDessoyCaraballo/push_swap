@@ -12,7 +12,8 @@ CFLAGS = -Wall -Wextra -Werror -g
 INCFLAGS = -Iincludes -Ilibft/includes
 
 # Main project files
-SRC_FILES = push_swap.c main.c parsing.c utils.c error.c
+SRC_FILES = push_swap.c main.c parsing.c utils.c error.c\
+			ss.c
 
 # Object files
 OBJ_FILES = $(SRC_FILES:.c=.o)
