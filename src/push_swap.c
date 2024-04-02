@@ -33,24 +33,34 @@ void	push_swap(char **argv, t_stack **stack)
 	}
 	(*stack)->len = gimme_length(*stack);
 	ft_printf("Length: %i\n", (*stack)->len);
-	// instructions(stack);
-	retrieve_stack(*stack);
+	instructions(stack);
+	
 	free_ll(stack); // not necessary, just for leaks
 }
+/* what to do with different number of arguments */
+void	instructions(t_stack **stack)
+{
+	// t_stack *stack_b;
 
-// void	instructions(t_stack **stack)
-// {
-// 	if ((*stack)->len <= 3)
-// 	{
-		
-// 	}
-// 	if ((*stack)->len <= 5)
-// 	{
-
-// 	}
-// //	else // for one number
-
-// }
+	// stack_b = NULL;
+	if ((*stack)->len == 1 || ft_stack_order(stack))
+		error_handling(stack, 99);
+	else if ((*stack)->len == 2)
+		sa(stack);
+	else if ((*stack)->len <= 3)
+	{
+		sort_three(stack);
+	}
+	else if ((*stack)->len <= 5)
+	{
+		ft_printf("placeholder\n");
+	}
+	else
+	{
+		rra(stack);
+		ft_printf("placeholder\n");
+	}
+}
 
 void    retrieve_stack(t_stack *stack)//DELETE BEFORE SUBMIT
 {
@@ -65,3 +75,20 @@ void    retrieve_stack(t_stack *stack)//DELETE BEFORE SUBMIT
         ptr = ptr->next;
     }
 }
+
+void    retrieve_stack_rev(t_stack *stack)//DELETE BEFORE SUBMIT
+{
+    t_stack    *ptr;
+
+    if (stack == NULL)
+        return ;
+    ptr = stack;
+	while (ptr->next != NULL)
+		ptr = ptr->next;
+	while (ptr != NULL)
+    {
+        ft_printf("%d\n", ptr->nb);
+        ptr = ptr->prev;
+    }
+}
+

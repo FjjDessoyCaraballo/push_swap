@@ -1,22 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   sorting.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/25 13:33:47 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/03/25 13:33:50 by fdessoy-         ###   ########.fr       */
+/*   Created: 2024/04/02 12:31:45 by fdessoy-          #+#    #+#             */
+/*   Updated: 2024/04/02 12:31:46 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	error_handling(t_stack **stack, int num)
-{
-	if (num == 1)
-		ft_putstr_fd(ERR_MAL, 2);
-	else if (num == 99)
-	free_ll(stack);
-	exit(1);
-}
+// void	sort_three(t_stack **stack)
+// {
+	
+// }

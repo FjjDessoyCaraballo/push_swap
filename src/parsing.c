@@ -89,7 +89,7 @@ void	char_in(char **av)
 
 int	ft_isdigit_mod(int c)
 {
-	if ((c > 47 && c < 58) || c == 42 || c == 45)
+	if ((c > 47 && c < 58) || c == 43 || c == 45)
 		return (1);
 	else
 		return (0);

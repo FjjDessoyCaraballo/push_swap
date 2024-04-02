@@ -42,8 +42,6 @@
 /*************************************************/
 typedef struct s_stack
 {
-	size_t			i;
-	size_t			j;
 	int				len;
 	int				nb;
 	struct s_stack	*next;
@@ -58,6 +56,7 @@ typedef struct s_stack
 void		push_swap(char **argv, t_stack **stack);
 void		instructions(t_stack **stack);
 void    	retrieve_stack(t_stack *stack); // TAKE THIS OUT!!!
+void    	retrieve_stack_rev(t_stack *stack); // TAKE THIS OUT TOO!!!
 
 /* in parsing.c */
 void		parse_args(char **av);
@@ -71,6 +70,7 @@ int			add_node(t_stack **stack, int value);
 t_stack		*list_last(t_stack *lst);
 int			gimme_length(t_stack *lst);
 void 		free_ll(t_stack **stack);
+int			ft_stack_order(t_stack **stack);
 
 /* in error.c */
 void		error_handling(t_stack **stack, int num);
@@ -79,7 +79,23 @@ void		error_handling(t_stack **stack, int num);
 void	swap(t_stack **stack);
 void	sa(t_stack **stack);
 void	sb(t_stack **stack);
-void	ss(t_stack **stack);
+void	ss(t_stack **stack_a, t_stack **stack_b);
 
+/* in rr.c */
+void	rotate(t_stack **stack);
+void	ra(t_stack **stack);
+void	rb(t_stack **stack);
+void	rr(t_stack **stack_a, t_stack **stack_b);
+
+/* in rrr.c */
+void	rev_rotate(t_stack **stack);
+void	rra(t_stack **stack);
+void	rrb(t_stack **stack);
+void	rrr(t_stack **stack_a, t_stack **stack_b);
+
+/* in pp.c */
+void	pushing(t_stack **stack_s, t_stack **stack_d);
+void	pa(t_stack **stack_b, t_stack **stack_a);
+void	pb(t_stack **stack_a, t_stack **stack_b);
 
 #endif

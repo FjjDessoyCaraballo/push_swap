@@ -19,11 +19,13 @@ int	add_node(t_stack **stack, int value)
 	t_stack *curr;
 	t_stack *end;
 
+	
 	curr = (t_stack *)malloc(sizeof(t_stack));
 	if (!curr)
 		return (0);
 	curr->next = NULL;
 	curr->nb = value;
+	curr->len = 0;
 	if (!(*stack))
 	{
 		curr->prev = NULL;
@@ -81,4 +83,18 @@ void free_ll(t_stack **stack)
         free(temp); // Free the current node
     }
     *stack = NULL; // Set head to NULL to indicate an empty list
+}
+
+int	ft_stack_order(t_stack **stack)
+{
+	t_stack *tmp;
+
+	tmp = (*stack);
+	while (tmp->next != NULL)
+	{
+		if (tmp->nb > tmp->next->nb)
+			return (0);
+		tmp = tmp->next;
+	}
+	return (1);
 }
