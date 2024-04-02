@@ -98,4 +98,7 @@ void	pushing(t_stack **stack_s, t_stack **stack_d);
 void	pa(t_stack **stack_b, t_stack **stack_a);
 void	pb(t_stack **stack_a, t_stack **stack_b);
 
+/* in sorting.c */
+void	sort_three(t_stack **stack);
+
 #endif

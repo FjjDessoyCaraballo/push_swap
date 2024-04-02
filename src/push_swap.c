@@ -32,12 +32,12 @@ void	push_swap(char **argv, t_stack **stack)
 			error_handling(stack, 1);
 	}
 	(*stack)->len = gimme_length(*stack);
-	ft_printf("Length: %i\n", (*stack)->len);
+	ft_printf("before sorting:\n");
+	retrieve_stack(*stack);
 	instructions(stack);
-	
-	free_ll(stack); // not necessary, just for leaks
+	free_ll(stack); // not necessary exactly here, just for leaks
 }
-/* what to do with different number of arguments */
+
 void	instructions(t_stack **stack)
 {
 	// t_stack *stack_b;
@@ -50,15 +50,16 @@ void	instructions(t_stack **stack)
 	else if ((*stack)->len <= 3)
 	{
 		sort_three(stack);
+		ft_printf("after sorting:\n");
+		retrieve_stack(*stack);
 	}
 	else if ((*stack)->len <= 5)
 	{
-		ft_printf("placeholder\n");
+		ft_printf("\n");
 	}
 	else
 	{
-		rra(stack);
-		ft_printf("placeholder\n");
+		ft_printf("\n");
 	}
 }
 

@@ -1,26 +1,34 @@
 # push_swap
-## Description:
-The goal of this project is to sort numbers given in the terminal. The scope of the project allows negative numbers and the use of two stacks.
 
-We have to sort these numbers with a limited number of actions: swap, push, and rotate. In our stack, we may:
-- swap the first and second elements (sa, sb, ss);
-- push from stack a to b and vice-versa (pa, pb);
-- rotate the first element all the way down or the last element all the way up (ra, ra, rr, rra, rrb, rrr).
 
-## Usage:
-**MacOs and Linux**
-- `git clone https://github.com/FjjDessoyCaraballo/push_swap`
-- Make the files
-- Use the ```./push_swap [numbers that you desire to sort separated by space]```
-- Profit $$$
+## How to execute
 
-## Current issues:
-- This is an ongoing project
+1. Make files;
+2. Type ./push_swap [list of arguments, must be numbers];
+3. Program sorts and displays the movements necessary for sorting, if sorting is needed;
 
-## Result:
-- Status: <span style="color:green">Incomplete</span>
-- Result: <span style="color:green">0%</span>
+## For testing purposes
 
-## Contact: 
-- 42-email: fdessoy-@student.hive.fi
-- 42-profile: [https://profile.intra.42.fr/users/fdessoy-](https://profile.intra.42.fr/users/fdessoy-)
+1. You can execute the following command in CLT ./push_swap $(seq 1 3 | sort -R | tr '\n' ' ')
+
+## Log
+
+week 1
+1. Added parsing.c, error.c, main.c, and utils.c;
+2. Parsing is dealing with the parsing of the arguments given;
+3. Error is mainly taking care of error messages, even tho there isn't a lot of them now;
+4. Utils is an umbrella file for particular functions.
+5. Parsed most of the inputs that would be considered as invalid and misguiding, such as:
+- letters;
+- special characters;
+- positive and negative signs in numbers;
+6. function add_node() does a crucial job of getting input into nodes of my linked list;
+7. In my struct of the linked list there is a variable called len (int) that takes the number of nodes to know the length of my list. This is an important information so I can treat individually small number of arguments and leave the algorithm to deal with larger number of arguments.
+
+week 2 (so far)
+1. Added rr.c, rrr.c, ss.c, pp.c, and sorting.c;
+2. rr.c deals with rotation. First element goes to the end and everything goes up in whichever stack is given;
+3. rrr.c works the same way as rr.c, but with the last element going to first place and everything goes downwards;
+4. ss.c is swapping the first two elements in whiever stack is given;
+5. pp.c pushes element from stack a to b, and vice-versa.
+6. sorting.c right now only deals with 3 elements. Logic is hardcoded since there is a small number of combinations;
