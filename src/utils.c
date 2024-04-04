@@ -3,23 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: fdessoy- <fdessoy-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 13:10:17 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/03/25 13:10:19 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/04/04 10:29:49 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// we need a new lstlast to take the values
 #include "push_swap.h"
 
-// if this works returns 1
 int	add_node(t_stack **stack, int value)
 {
-	t_stack *curr;
-	t_stack *end;
+	t_stack	*curr;
+	t_stack	*end;
 
-	
 	curr = (t_stack *)malloc(sizeof(t_stack));
 	if (!curr)
 		return (0);
@@ -69,25 +66,24 @@ int	gimme_length(t_stack *lst)
 	return (i);
 }
 
-void free_ll(t_stack **stack)
+void	free_ll(t_stack **stack)
 {
-    t_stack *current;
-	t_stack *temp;
+	t_stack		*current;
+	t_stack		*temp;
 
-	// current = NULL;
 	current = *stack;
-    while (current != NULL) 
+	while (current != NULL)
 	{
-        temp = current;
-        current = current->next;
-        free(temp); // Free the current node
-    }
-    *stack = NULL; // Set head to NULL to indicate an empty list
+		temp = current;
+		current = current->next;
+		free(temp);
+	}
+	*stack = NULL;
 }
 
-int	ft_stack_order(t_stack **stack)
+int	stack_order(t_stack **stack)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 
 	tmp = (*stack);
 	while (tmp->next != NULL)

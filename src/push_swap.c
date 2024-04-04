@@ -3,67 +3,53 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: fdessoy- <fdessoy-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 09:58:09 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/03/25 09:58:10 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/04/04 16:46:24 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/* push_swap will have to take care of the instructions.
-Right now I don't know how to deal with different number
-of inputs. But apparently it was suggested that I should
-take care of inputs as in 3 and 5 above. */
-
-/*TO DO:
-1. Need to get the number of elements into a variable
-2. Sort instructions*/
-
 void	push_swap(char **argv, t_stack **stack)
 {
-	int		i;
+	int	i;
 
 	i = 0;
-	while(argv[i])
+	while (argv[i])
 	{
 		if (!add_node(stack, ft_atoi(argv[i++])))
 			error_handling(stack, 1);
 	}
 	(*stack)->len = gimme_length(*stack);
-	ft_printf("before sorting:\n");
-	retrieve_stack(*stack);
+	(*stack)->min = find_min(stack);
+	(*stack)->max = find_max(stack);
+	gimme_median(*stack);
+	// ft_printf("before sorting:\n");
+	// retrieve_stack(*stack);
 	instructions(stack);
-	free_ll(stack); // not necessary exactly here, just for leaks
+	free_ll(stack);
 }
 
 void	instructions(t_stack **stack)
 {
-	// t_stack *stack_b;
-
-	// stack_b = NULL;
-	if ((*stack)->len == 1 || ft_stack_order(stack))
+	if ((*stack)->len == 1 || stack_order(stack))
 		error_handling(stack, 99);
 	else if ((*stack)->len == 2)
 		sa(stack);
 	else if ((*stack)->len <= 3)
-	{
 		sort_three(stack);
-		ft_printf("after sorting:\n");
+	else if ((*stack)->len <= 10)
+	{
+		sort_faux(stack);
 		retrieve_stack(*stack);
 	}
-	else if ((*stack)->len <= 5)
-	{
-		ft_printf("\n");
-	}
 	else
-	{
 		ft_printf("\n");
-	}
 }
 
-void    retrieve_stack(t_stack *stack)//DELETE BEFORE SUBMIT
+void    retrieve_stack(t_stack *stack)
 {
     t_stack    *ptr;
 
@@ -72,24 +58,24 @@ void    retrieve_stack(t_stack *stack)//DELETE BEFORE SUBMIT
     ptr = stack;
     while (ptr)
     {
-        ft_printf("%d\n", ptr->nb);
+        ft_printf("number: %d\n", ptr->nb);
+		ft_printf("target of number: %d\n", ptr->target);
         ptr = ptr->next;
     }
 }
 
-void    retrieve_stack_rev(t_stack *stack)//DELETE BEFORE SUBMIT
-{
-    t_stack    *ptr;
+// void    retrieve_stack_rev(t_stack *stack)
+// {
+//     t_stack    *ptr;
 
-    if (stack == NULL)
-        return ;
-    ptr = stack;
-	while (ptr->next != NULL)
-		ptr = ptr->next;
-	while (ptr != NULL)
-    {
-        ft_printf("%d\n", ptr->nb);
-        ptr = ptr->prev;
-    }
-}
-
+//     if (stack == NULL)
+//         return ;
+//     ptr = stack;
+// 	while (ptr->next != NULL)
+// 		ptr = ptr->next;
+// 	while (ptr != NULL)
+//     {
+//         ft_printf("%d\n", ptr->nb);
+//         ptr = ptr->prev;
+//     }
+// }

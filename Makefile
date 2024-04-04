@@ -8,12 +8,12 @@ LIBFT_DIR = libft
 VPATH = src:libft:includes
 
 # Compiler flags
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror -g # -fsanitize=address
 INCFLAGS = -Iincludes -Ilibft/includes
 
 # Main project files
 SRC_FILES = push_swap.c main.c parsing.c utils.c error.c\
-			ss.c rr.c rrr.c pp.c sorting.c
+			ss.c rr.c rrr.c pp.c sorting.c utils2.c
 
 # Object files
 OBJ_FILES = $(SRC_FILES:.c=.o)

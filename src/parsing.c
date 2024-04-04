@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: fdessoy- <fdessoy-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 10:18:59 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/03/25 10:19:10 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/04/03 10:47:47 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char	**check_arg(int argc, char **argv, bool split)
 		exit(1);
 	}
 	if (argc == 2)
-	{	
+	{
 		argv = ft_split(argv[1], ' ');
 		split = true;
 		if (!argv)
@@ -84,7 +84,6 @@ void	char_in(char **av)
 		}
 		i++;
 	}
-
 }
 
 int	ft_isdigit_mod(int c)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: fdessoy- <fdessoy-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 09:58:03 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/03/25 09:58:04 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/04/04 17:23:15 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 /* external libraries ****************************/
 /*************************************************/
 
+# include <limits.h>
 /* for booleans */
 # include <stdbool.h>
 /* for read and write */
@@ -42,7 +43,12 @@
 /*************************************************/
 typedef struct s_stack
 {
+	int				target;
+	int				min;
+	int				max;
 	int				len;
+	int				a_median;
+	int				index;
 	int				nb;
 	struct s_stack	*next;
 	struct s_stack	*prev;
@@ -70,7 +76,7 @@ int			add_node(t_stack **stack, int value);
 t_stack		*list_last(t_stack *lst);
 int			gimme_length(t_stack *lst);
 void 		free_ll(t_stack **stack);
-int			ft_stack_order(t_stack **stack);
+int			stack_order(t_stack **stack);
 
 /* in error.c */
 void		error_handling(t_stack **stack, int num);
@@ -100,5 +106,14 @@ void	pb(t_stack **stack_a, t_stack **stack_b);
 
 /* in sorting.c */
 void	sort_three(t_stack **stack);
+void	sort_moderate(t_stack **stack);
+void	sort_faux(t_stack **stack);
+
+/* in utils2.c */
+int		find_min(t_stack **stack);
+int		find_max(t_stack **stack);
+void	gimme_median(t_stack *stack);
+void	target_number_a(t_stack **stack, t_stack *stack_b);
+void	target_number_b(t_stack **stack, t_stack *stack_b);
 
 #endif

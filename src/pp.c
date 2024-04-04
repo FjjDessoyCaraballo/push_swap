@@ -3,19 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   pp.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: fdessoy- <fdessoy-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 13:28:08 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/04/02 13:28:08 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/04/03 10:49:46 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// one of the stacks is gonna be empty in the very very very beginning very
 void	pushing(t_stack **stack_s, t_stack **stack_d)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 
 	tmp = (*stack_s);
 	(*stack_s) = (*stack_s)->next;
@@ -34,8 +33,8 @@ void	pushing(t_stack **stack_s, t_stack **stack_d)
 	}
 }
 
-/* pa (push a): Take the first element at the top of b and put it at the top of a.
-Do nothing if b is empty. */
+/* pa (push a): Take the first element at the top of b
+and put it at the top of a. Do nothing if b is empty. */
 void	pa(t_stack **stack_b, t_stack **stack_a)
 {
 	if (stack_b != NULL)
@@ -45,8 +44,8 @@ void	pa(t_stack **stack_b, t_stack **stack_a)
 	}
 }
 
-/* pb (push b): Take the first element at the top of a and put it at the top of b.
-Do nothing if a is empty. */
+/* pb (push b): Take the first element at the top
+of a and put it at the top of b. Do nothing if a is empty.*/
 void	pb(t_stack **stack_a, t_stack **stack_b)
 {
 	if (stack_a != NULL)
