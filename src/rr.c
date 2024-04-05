@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 11:04:59 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/04/03 16:41:06 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/04/05 10:28:51 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,6 @@ void	rotate(t_stack **stack)
 	(*stack)->prev = NULL;
 	last->next = NULL;
 	last->prev = tmp;
-	// while((*stack)->next != NULL)
-	// {
-	// 	ft_printf("previous is %p next is %p\n", (*stack)->prev, (*stack)->next);
-	// 	(*stack) = (*stack)->next;
-	// }
-	// 	ft_printf("here\n");
 }
 
 /* ra (rotate a): Shift up all elements of stack a by 1.

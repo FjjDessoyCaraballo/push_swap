@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 09:58:03 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/04/04 17:23:15 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/04/05 15:30:43 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,14 @@
 /*************************************************/
 typedef struct s_stack
 {
-	int				target;
+	t_stack			*target;
+	int				cost;
 	int				min;
 	int				max;
 	int				len;
+	int				lenb;
 	int				a_median;
+	bool			median;
 	int				index;
 	int				nb;
 	struct s_stack	*next;
@@ -71,12 +74,6 @@ void		repeat_num(char **av);
 void		char_in(char **av);
 int			ft_isdigit_mod(int c);
 
-/* in utils.c */
-int			add_node(t_stack **stack, int value);
-t_stack		*list_last(t_stack *lst);
-int			gimme_length(t_stack *lst);
-void 		free_ll(t_stack **stack);
-int			stack_order(t_stack **stack);
 
 /* in error.c */
 void		error_handling(t_stack **stack, int num);
@@ -109,11 +106,23 @@ void	sort_three(t_stack **stack);
 void	sort_moderate(t_stack **stack);
 void	sort_faux(t_stack **stack);
 
+/* in utils.c */
+int			add_node(t_stack **stack, int value);
+t_stack		*list_last(t_stack *lst);
+int			gimme_length(t_stack *lst);
+void 		free_ll(t_stack **stack);
+int			stack_order(t_stack **stack);
+
 /* in utils2.c */
 int		find_min(t_stack **stack);
 int		find_max(t_stack **stack);
-void	gimme_median(t_stack *stack);
+// void	gimme_median(t_stack *stack);
 void	target_number_a(t_stack **stack, t_stack *stack_b);
 void	target_number_b(t_stack **stack, t_stack *stack_b);
+
+/* in utils3.c */
+void	gimme_index(t_stack *stack);
+void	gimme_cost(t_stack *stack, t_stack *stack_b)
+void	set_cost(t_stack *stack, int lendifa, int lendifb)
 
 #endif

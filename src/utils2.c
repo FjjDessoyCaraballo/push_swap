@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 09:39:50 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/04/04 17:22:28 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/04/05 15:21:15 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,16 +45,16 @@ int	find_max(t_stack **stack)
 	return (max);
 }
 
-void gimme_median(t_stack *stack)
-{
-	int		i;
+// void gimme_median(t_stack *stack)
+// {
+// 	int		i;
 
-	i = 0;
-	if (stack->len % 2 == 0)
-		stack->a_median = stack->len / 2;
-	else
-		stack->a_median = stack->len / 2 + 1;
-}
+// 	i = 0;
+// 	if (stack->len % 2 == 0)
+// 		stack->a_median = stack->len / 2;
+// 	else
+// 		stack->a_median = stack->len / 2 + 1;
+// }
 
 void	target_number_a(t_stack **stack, t_stack *stack_b)
 {

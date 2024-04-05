@@ -6,72 +6,11 @@
 /*   By: fdessoy- <fdessoy-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 12:31:45 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/04/04 16:45:34 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/04/05 15:25:55 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-/* should work for 4 to 5 */
-// int	calculate_moves_to_b(t_stack *stack_b, int num)
-// {
-// 	int count_moves;
-// 	int i;
-
-// 	i = 0;
-// 	while (i < stack_b->len)
-// 	{
-// 		if (stack_b->nb > num > stack_b->next->nb)
-// 			return (i);
-// 		i++;
-// 	}
-// 	stack_b->next->nb < num;
-// }
-
-// void sort(t_stack **stack)
-// {
-// 	t_stack	*stack_b;
-// 	int	bmoves;
-// 	int	i;
-// 	int	min;
-// 	int best;
-
-// 	bmoves = 0;
-// 	best = 0;
-// 	min = 0;
-// 	i = 0;
-// 	while ((*stack)->len > 3)
-// 	{
-// 		while (i < (*stack)->len)
-// 		{
-// 			bmoves = calculate_moves_to_b(stack_b, stack_b->nb);
-// 			if (bmoves + i < min)
-// 				min = bmoves + i;
-// 				best = i;
-// 			(*stack) = (*stack)->next;
-// 			i++;
-// 			push_best(i, (*stack), stack b)	
-// 		}
-// 	}
-// 	sort_three((*stack));
-// 	//pushback
-// 	while (stack_b)
-// 		if (stack_b->nb > end->nb)
-// 			pa(&stack_b, (*stack));
-// 		else
-// 			rra(*stack);
-// 	smallest to top a
-// }
-
-
-void	sort_faux(t_stack **stack)
-{
-	t_stack	*stack_b = NULL;
-	
-	pb(stack, &stack_b);
-	pb(stack, &stack_b);
-	target_number(stack, stack_b);
-	retrieve_stack(stack_b);
-}
 
 void	sort_three(t_stack **stack)
 {
@@ -98,6 +37,22 @@ void	sort_three(t_stack **stack)
 		ra(stack);
 	}
 }
+
+void	sort_faux(t_stack **stack)
+{
+	t_stack	*stack_b = NULL;
+	
+	pb(stack, &stack_b);
+	pb(stack, &stack_b);
+	gimme_index(stack);
+	gimme_index(stack_b);
+	target_number_a(stack, stack_b);
+	
+	if ((*stack)->len == 3)
+		sort_three((*stack));
+	target_number_b(stack, stack_b);
+}
+
 // void	sort_moderate(t_stack **stack)
 // {
 // 	t_stack	*stack_b;
@@ -158,4 +113,56 @@ void	sort_three(t_stack **stack)
 // 		if (ft_stack_order(stack) && stack_b == NULL)
 // 			break ;
 // 	}
+// }
+
+
+/* should work for 4 to 5 */
+// int	calculate_moves_to_b(t_stack *stack_b, int num)
+// {
+// 	int count_moves;
+// 	int i;
+
+// 	i = 0;
+// 	while (i < stack_b->len)
+// 	{
+// 		if (stack_b->nb > num > stack_b->next->nb)
+// 			return (i);
+// 		i++;
+// 	}
+// 	stack_b->next->nb < num;
+// }
+
+// void sort(t_stack **stack)
+// {
+// 	t_stack	*stack_b;
+// 	int	bmoves;
+// 	int	i;
+// 	int	min;
+// 	int best;
+
+// 	bmoves = 0;
+// 	best = 0;
+// 	min = 0;
+// 	i = 0;
+// 	while ((*stack)->len > 3)
+// 	{
+// 		while (i < (*stack)->len)
+// 		{
+// 			bmoves = calculate_moves_to_b(stack_b, stack_b->nb);
+// 			if (bmoves + i < min)
+// 				min = bmoves + i;
+// 				best = i;
+// 			(*stack) = (*stack)->next;
+// 			i++;
+// 			push_best(i, (*stack), stack b)	
+// 		}
+// 	}
+// 	sort_three((*stack));
+// 	//pushback
+// 	while (stack_b)
+// 		if (stack_b->nb > end->nb)
+// 			pa(&stack_b, (*stack));
+// 		else
+// 			rra(*stack);
+// 	smallest to top a
 // }

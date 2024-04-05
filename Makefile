@@ -13,7 +13,8 @@ INCFLAGS = -Iincludes -Ilibft/includes
 
 # Main project files
 SRC_FILES = push_swap.c main.c parsing.c utils.c error.c\
-			ss.c rr.c rrr.c pp.c sorting.c utils2.c
+			ss.c rr.c rrr.c pp.c sorting.c utils2.c utils3.c\
+			
 
 # Object files
 OBJ_FILES = $(SRC_FILES:.c=.o)
