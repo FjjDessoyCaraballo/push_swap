@@ -6,108 +6,75 @@
 /*   By: fdessoy- <fdessoy-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 09:39:50 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/04/05 15:21:15 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/04/09 19:11:13 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	find_min(t_stack **stack)
+static t_stack	*find_next(t_stack **stack)
 {
-	t_stack	*curr;
-	int		min;
+	t_stack	*tmp;
 
-	curr = (*stack);
-	min = curr->nb;
-	while (curr != NULL)
+	tmp = (*stack);
+	while (tmp->next != NULL)
 	{
-		if (curr->nb < min)
-			min = curr->nb;
-		curr = curr->next;
+		if (tmp->index == -1)
+			return (tmp);
+		tmp = tmp->next;
+	}
+	return (tmp);
+}
+
+t_stack	*find_min(t_stack **stack)
+{
+	t_stack	*min;
+
+	min = (*stack);
+	while ((*stack) != NULL)
+	{
+		if ((*stack)->nb < min->nb)
+			min = (*stack);
+		(*stack) = (*stack)->next;
 	}
 	return (min);
 }
 
 int	find_max(t_stack **stack)
 {
-	t_stack	*curr;
-	int		max;
+	int		n;
+	t_stack	*max;
 
-	max = 0;
-	curr = (*stack);
-	max = curr->nb;
-	while (curr != NULL)
+	max = (*stack);
+	while ((*stack) != NULL)
 	{
-		if (curr->nb > max)
-			max = curr->nb;
-		curr = curr->next;
-	}
-	return (max);
-}
-
-// void gimme_median(t_stack *stack)
-// {
-// 	int		i;
-
-// 	i = 0;
-// 	if (stack->len % 2 == 0)
-// 		stack->a_median = stack->len / 2;
-// 	else
-// 		stack->a_median = stack->len / 2 + 1;
-// }
-
-void	target_number_a(t_stack **stack, t_stack *stack_b)
-{
-	t_stack	*tmp_b;
-	t_stack *tmp_a;
-	long	diff;
-	
-	tmp_b = stack_b;
-	tmp_a = (*stack);
-	while ((*stack))
-	{
-		diff = UINT_MAX;
-		while (stack_b)
-		{
-			if ((stack_b->nb < (*stack)->nb) && ((long)(*stack)->nb - (long)stack_b->nb < diff))
-			{
-				diff = (*stack)->nb - stack_b->nb;
-				(*stack)->target = stack_b->nb;
-			}
-			stack_b = stack_b->next;
-		}
-		stack_b = tmp_b;
-		if (diff == UINT_MAX)
-			(*stack)->target = find_max(&stack_b);
+		if ((*stack)->nb > max->nb)
+			n = (*stack)->nb;
 		(*stack) = (*stack)->next;
 	}
-	(*stack) = tmp_a;
+	return (n);
 }
 
-void	target_number_b(t_stack **stack, t_stack *stack_b)
+void	gimme_index(t_stack **stack, int len)
 {
-	t_stack	*tmp_b;
-	t_stack *tmp_a;
-	long	diff;
-	
-	tmp_b = stack_b;
-	tmp_a = (*stack);
-	while (stack_b)
+	t_stack	*max;
+	t_stack	*tmp;
+
+	max = (*stack);
+	tmp = (*stack);
+	if (len == 0)
+		return ;
+	while (len > 0)
 	{
-		diff = UINT_MAX;
-		while ((*stack))
+		tmp = tmp->next;
+		if (tmp->nb > max->nb && tmp->index == -1)
+			max = tmp;
+		if (tmp->next == NULL)
 		{
-			if ((stack_b->nb < (*stack)->nb) && ((long)(*stack)->nb - (long)stack_b->nb < diff))
-			{
-				diff = (*stack)->nb - stack_b->nb;
-				(*stack)->target = stack_b->nb;
-			}
-			(*stack) = (*stack)->next;
+			max->index = len;
+			len--;
+			max = find_next(stack);
+			tmp = (*stack);
 		}
-		(*stack) = tmp_a;
-		if (diff == UINT_MAX)
-			(*stack)->target = find_min(&stack_b);
-		stack_b = stack_b->next;
 	}
-	stack_b = tmp_b;
 }

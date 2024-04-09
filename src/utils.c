@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 13:10:17 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/04/04 10:29:49 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/04/09 17:12:09 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,16 @@ int	add_node(t_stack **stack, int value)
 	curr = (t_stack *)malloc(sizeof(t_stack));
 	if (!curr)
 		return (0);
+	curr->index = -1;
 	curr->next = NULL;
 	curr->nb = value;
 	curr->len = 0;
 	if (!(*stack))
-	{
-		curr->prev = NULL;
 		*stack = curr;
-	}
 	else
 	{
 		end = list_last(*stack);
 		end->next = curr;
-		curr->prev = end;
 	}
 	return (1);
 }
@@ -53,17 +50,17 @@ t_stack	*list_last(t_stack *lst)
 
 int	gimme_length(t_stack *lst)
 {
-	size_t	i;
+	int	len;
 
-	i = 1;
-	while (lst)
+	len = 1;
+	if (!lst)
+		return (0);
+	while (lst->next != NULL)
 	{
-		if (!lst->next)
-			return (i);
 		lst = lst->next;
-		i++;
+		len++;
 	}
-	return (i);
+	return (len);
 }
 
 void	free_ll(t_stack **stack)

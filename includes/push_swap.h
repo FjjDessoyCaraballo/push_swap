@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 09:58:03 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/04/05 15:30:43 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/04/09 19:00:10 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,9 @@
 /*************************************************/
 /* external libraries ****************************/
 /*************************************************/
+
+/* TAKE THIS OUT FOR THE MOTHER OF GOD */
+#include <stdio.h>
 
 # include <limits.h>
 /* for booleans */
@@ -43,18 +46,10 @@
 /*************************************************/
 typedef struct s_stack
 {
-	t_stack			*target;
-	int				cost;
-	int				min;
-	int				max;
 	int				len;
-	int				lenb;
-	int				a_median;
-	bool			median;
 	int				index;
 	int				nb;
 	struct s_stack	*next;
-	struct s_stack	*prev;
 }	t_stack;
 
 /*************************************************/
@@ -63,9 +58,9 @@ typedef struct s_stack
 
 /* in push_swap.c */
 void		push_swap(char **argv, t_stack **stack);
-void		instructions(t_stack **stack);
+void		instructions(t_stack **stack, int len);
 void    	retrieve_stack(t_stack *stack); // TAKE THIS OUT!!!
-void    	retrieve_stack_rev(t_stack *stack); // TAKE THIS OUT TOO!!!
+// void    	retrieve_stack_rev(t_stack *stack); // TAKE THIS OUT TOO!!!
 
 /* in parsing.c */
 void		parse_args(char **av);
@@ -73,7 +68,6 @@ char		**check_arg(int argc, char **argv, bool split);
 void		repeat_num(char **av);
 void		char_in(char **av);
 int			ft_isdigit_mod(int c);
-
 
 /* in error.c */
 void		error_handling(t_stack **stack, int num);
@@ -103,8 +97,8 @@ void	pb(t_stack **stack_a, t_stack **stack_b);
 
 /* in sorting.c */
 void	sort_three(t_stack **stack);
-void	sort_moderate(t_stack **stack);
-void	sort_faux(t_stack **stack);
+void	sort_four_or_more(t_stack **stack, int i);
+void	radix(t_stack **stack);
 
 /* in utils.c */
 int			add_node(t_stack **stack, int value);
@@ -114,15 +108,6 @@ void 		free_ll(t_stack **stack);
 int			stack_order(t_stack **stack);
 
 /* in utils2.c */
-int		find_min(t_stack **stack);
-int		find_max(t_stack **stack);
-// void	gimme_median(t_stack *stack);
-void	target_number_a(t_stack **stack, t_stack *stack_b);
-void	target_number_b(t_stack **stack, t_stack *stack_b);
-
-/* in utils3.c */
-void	gimme_index(t_stack *stack);
-void	gimme_cost(t_stack *stack, t_stack *stack_b)
-void	set_cost(t_stack *stack, int lendifa, int lendifb)
+void	gimme_index(t_stack **stack, int len);
 
 #endif

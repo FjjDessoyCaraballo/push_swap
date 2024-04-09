@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 13:28:08 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/04/03 10:49:46 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/04/09 16:56:53 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,15 @@
 
 void	pushing(t_stack **stack_s, t_stack **stack_d)
 {
-	t_stack	*tmp;
+	t_stack	*first;
 
-	tmp = (*stack_s);
+	first = (*stack_s);
 	(*stack_s) = (*stack_s)->next;
-	if ((*stack_s) != NULL)
-		(*stack_s)->prev = NULL;
 	if ((*stack_d) == NULL)
-	{
-		(*stack_d) = tmp;
-		(*stack_d)->next = NULL;
-	}
+		first->next = NULL;
 	else
-	{
-		tmp->next = (*stack_d);
-		(*stack_d)->prev = tmp;
-		(*stack_d) = tmp;
-	}
+		first->next = (*stack_d);
+	(*stack_d) = first;
 }
 
 /* pa (push a): Take the first element at the top of b

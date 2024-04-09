@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 09:10:52 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/04/03 10:52:27 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/04/09 16:58:44 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,14 @@
 
 void	swap(t_stack **stack)
 {
-	t_stack	*second_n;
-	t_stack	*third_n;
+	t_stack	*first;
+	t_stack	*rest;
 
-	second_n = (*stack)->next;
-	third_n = second_n->next;
-	second_n->next = (*stack);
-	(*stack)->next = third_n;
-	(*stack) = second_n;
-	(*stack)->next->prev = (*stack);
-	if (third_n != NULL)
-		(*stack)->next->next->prev = (*stack)->next;
-	(*stack)->prev = NULL;
+	first = (*stack)->next;
+	rest = first->next;
+	first->next = (*stack);
+	(*stack)->next = rest;
+	(*stack) = first;
 }
 
 /*

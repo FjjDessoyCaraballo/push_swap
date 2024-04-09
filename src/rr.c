@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 11:04:59 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/04/05 10:28:51 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/04/09 17:00:59 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,14 @@
 
 void	rotate(t_stack **stack)
 {
-	t_stack	*tmp;
+	t_stack	*first;
 	t_stack	*last;
 
-	tmp = (*stack);
-	last = (*stack);
-	(*stack) = (*stack)->next;
-	while (tmp->next != NULL)
-		tmp = tmp->next;
-	tmp->next = last;
-	(*stack)->prev = NULL;
-	last->next = NULL;
-	last->prev = tmp;
+	first = (*stack)->next;
+	last = list_last(*stack);
+	last->next = (*stack);
+	(*stack)->next = NULL;
+	(*stack) = first;
 }
 
 /* ra (rotate a): Shift up all elements of stack a by 1.
