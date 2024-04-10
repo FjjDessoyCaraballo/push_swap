@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 10:18:59 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/04/03 10:47:47 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/04/10 13:06:28 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,13 @@ void	parse_args(char **av)
 
 char	**check_arg(int argc, char **argv, bool split)
 {
-	if (argc < 2)
-	{
-		ft_putstr_fd(ERR_ARG, 2);
-		exit(1);
-	}
 	if (argc == 2)
 	{
 		argv = ft_split(argv[1], ' ');
 		split = true;
 		if (!argv)
 		{
+			ft_putstr_fd(ERR, 2);
 			free_array(argv);
 			exit(1);
 		}
@@ -54,8 +50,8 @@ void	repeat_num(char **av)
 		{
 			if (!ft_strncmp(av[a], av[i], sizeof(int)))
 			{
-				ft_putstr_fd(ERR_REP, 2);
-				exit(1);
+				ft_putstr_fd(ERR, 2);
+				exit(666);
 			}
 			a++;
 		}
@@ -77,8 +73,8 @@ void	char_in(char **av)
 		{
 			if (!ft_isdigit_mod(av[i][j]))
 			{
-				ft_putstr_fd(ERR_STUPID, 2);
-				exit(1);
+				ft_putstr_fd(ERR, 2);
+				exit(123);
 			}
 			j++;
 		}

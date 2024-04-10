@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 09:39:50 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/04/09 19:11:13 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/04/10 13:47:27 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,35 +24,6 @@ static t_stack	*find_next(t_stack **stack)
 		tmp = tmp->next;
 	}
 	return (tmp);
-}
-
-t_stack	*find_min(t_stack **stack)
-{
-	t_stack	*min;
-
-	min = (*stack);
-	while ((*stack) != NULL)
-	{
-		if ((*stack)->nb < min->nb)
-			min = (*stack);
-		(*stack) = (*stack)->next;
-	}
-	return (min);
-}
-
-int	find_max(t_stack **stack)
-{
-	int		n;
-	t_stack	*max;
-
-	max = (*stack);
-	while ((*stack) != NULL)
-	{
-		if ((*stack)->nb > max->nb)
-			n = (*stack)->nb;
-		(*stack) = (*stack)->next;
-	}
-	return (n);
 }
 
 void	gimme_index(t_stack **stack, int len)
