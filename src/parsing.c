@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 10:18:59 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/04/10 13:06:28 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/04/11 14:23:45 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,11 @@ void	parse_args(char **av)
 	char_in(av);
 }
 
-char	**check_arg(int argc, char **argv, bool split)
+char	**check_arg(char **argv, bool split)
 {
-	if (argc == 2)
+	if (split == true)
 	{
 		argv = ft_split(argv[1], ' ');
-		split = true;
 		if (!argv)
 		{
 			ft_putstr_fd(ERR, 2);

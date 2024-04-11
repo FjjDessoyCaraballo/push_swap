@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 09:58:03 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/04/11 09:38:32 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/04/11 14:27:38 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,12 @@
 /*************************************************/
 /* external libraries ****************************/
 /*************************************************/
-# include <limits.h>
-/* for booleans */
 # include <stdbool.h>
-/* for read and write */
+/* for booleans */
 # include <unistd.h>
-/* for malloc, free, and exit */
+/* for read and write */
 # include <stdlib.h>
+/* for malloc, free, and exit */
 
 /*************************************************/
 /* error macro **********************************/
@@ -54,7 +53,7 @@ void		instructions(t_stack **stack, int len);
 void		error_handling(t_stack **stack, int flag);
 /* in parsing.c */
 void		parse_args(char **av);
-char		**check_arg(int argc, char **argv, bool split);
+char		**check_arg(char **argv, bool split);
 void		repeat_num(char **av);
 void		char_in(char **av);
 int			ft_isdigit_mod(int c);
@@ -91,5 +90,6 @@ int			stack_order(t_stack **stack);
 /* in utils2.c */
 void		gimme_index(t_stack **stack, int len);
 int			ft_strcmp(char *s1, char *s2);
+bool		check_stupid(char **argv);
 
 #endif
