@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fdessoy- <fdessoy-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/25 09:58:16 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/04/11 09:29:16 by fdessoy-         ###   ########.fr       */
+/*   Created: 2024/04/10 13:45:40 by fdessoy-          #+#    #+#             */
+/*   Updated: 2024/04/11 09:48:54 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+int	ft_strcmp(char *s1, char *s2)
 {
-	t_stack	*stack;
-	bool	split;
+	int	i;
 
-	split = false;
-	stack = NULL;
-	argv = check_arg(argc, argv, split);
-	parse_args(argv);
-	push_swap(argv, &stack);
-	if (split == true)
-		free_array(argv);
-	free_ll(&stack);
-	return (0);
+	i = 0;
+	while (s1[i] == s2[i] && s1[i] != '\0' && s2[i] != '\0')
+		i++;
+	return (s1[i] - s2[i]);
 }

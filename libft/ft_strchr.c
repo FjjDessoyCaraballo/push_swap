@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fdessoy- <fdessoy-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/25 09:58:16 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/04/11 09:29:16 by fdessoy-         ###   ########.fr       */
+/*   Created: 2023/10/26 16:45:27 by fdessoy-          #+#    #+#             */
+/*   Updated: 2024/04/10 13:46:12 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+char	*ft_strchr(const char *s, int c)
 {
-	t_stack	*stack;
-	bool	split;
+	char	ch;
+	char	*str;
+	int		i;
 
-	split = false;
-	stack = NULL;
-	argv = check_arg(argc, argv, split);
-	parse_args(argv);
-	push_swap(argv, &stack);
-	if (split == true)
-		free_array(argv);
-	free_ll(&stack);
-	return (0);
+	i = 0;
+	str = (char *)s;
+	ch = (char)c;
+	while (str[i] != ch)
+	{
+		if (str[i] == '\0')
+		{
+			return (0);
+		}
+		i++;
+	}
+	return (&str[i]);
 }

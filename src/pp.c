@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 13:28:08 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/04/09 16:56:53 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/04/11 09:50:17 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@ void	pushing(t_stack **stack_s, t_stack **stack_d)
 	(*stack_d) = first;
 }
 
-/* pa (push a): Take the first element at the top of b
-and put it at the top of a. Do nothing if b is empty. */
 void	pa(t_stack **stack_b, t_stack **stack_a)
 {
 	if (stack_b != NULL)
@@ -36,8 +34,6 @@ void	pa(t_stack **stack_b, t_stack **stack_a)
 	}
 }
 
-/* pb (push b): Take the first element at the top
-of a and put it at the top of b. Do nothing if a is empty.*/
 void	pb(t_stack **stack_a, t_stack **stack_b)
 {
 	if (stack_a != NULL)

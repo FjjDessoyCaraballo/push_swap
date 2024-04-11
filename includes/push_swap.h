@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 09:58:03 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/04/10 13:40:09 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/04/11 09:38:32 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ typedef struct s_stack
 
 /* in push_swap.c */
 void		push_swap(char **argv, t_stack **stack);
-int			long_check(char *str);
+void		long_check(char *str);
 void		instructions(t_stack **stack, int len);
 void		error_handling(t_stack **stack, int flag);
 /* in parsing.c */
