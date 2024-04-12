@@ -30,6 +30,7 @@ SRC =	ft_bzero.c\
 		ft_toupper.c\
 		ft_atoi.c\
 		ft_substr.c\
+		ft_strcmp.c\
 		ft_strjoin.c\
 		ft_strsjoin.c\
 		ft_strjoin_mod.c\
@@ -59,7 +60,7 @@ SRC =	ft_bzero.c\
 		ft_str.c\
 		ft_unsig_nbr.c\
 		get_next_line.c\
-		get_next_line_utils.c
+		get_next_line_utils.c\
 
 
 CFLAGS = -Wall -Wextra -Werror -MMD -g
@@ -73,7 +74,7 @@ $(NAME): $(OBJ)
 
 $(OBJ_DIR)/%.o: %.c
 	@mkdir -p $(OBJ_DIR)
-	@cc $(CFLAGS) $(INCFLAGS) -c $< -o $@
+	@cc $(CFLAGS) $(INCFLAGS) -c -g $< -o $@
 
 clean:
 	@rm -rf $(OBJ_DIR) 
