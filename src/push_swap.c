@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 09:58:09 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/04/11 09:42:21 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/04/15 10:40:33 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ void	long_check(char *str)
 	int		x;
 	char	*ou_flow;
 
+	if (ft_strcmp(str, "-0") == 0)
+		return ;
 	x = ft_atoi(str);
 	ou_flow = ft_itoa(x);
 	if (ft_strcmp(str, ou_flow) != 0)

@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 09:58:16 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/04/12 10:03:38 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/04/15 10:55:17 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ int	main(int argc, char **argv)
 	bool	split;
 
 	split = false;
-	stack = NULL;
 	if (argc == 2)
 		split = true;
+	stack = NULL;
 	argv = check_arg(argv, split);
 	parse_args(argv);
 	push_swap(argv, &stack);

@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 10:18:59 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/04/12 10:03:18 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/04/15 10:43:41 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ char	**check_arg(char **argv, bool split)
 	if (split == true)
 	{
 		argv = ft_split(argv[1], ' ');
+		split = true;
 		if (!argv)
 		{
 			ft_putstr_fd(ERR, 2);

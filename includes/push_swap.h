@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 09:58:03 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/04/12 10:03:23 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/04/15 10:43:55 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,13 @@
 /*************************************************/
 /* external libraries ****************************/
 /*************************************************/
-# include <stdbool.h>
+# include <limits.h>
 /* for booleans */
-# include <unistd.h>
+# include <stdbool.h>
 /* for read and write */
-# include <stdlib.h>
+# include <unistd.h>
 /* for malloc, free, and exit */
+# include <stdlib.h>
 
 /*************************************************/
 /* error macro **********************************/
@@ -90,6 +91,5 @@ int			stack_order(t_stack **stack);
 /* in utils2.c */
 void		gimme_index(t_stack **stack, int len);
 int			ft_strcmp(char *s1, char *s2);
-bool		check_stupid(char **argv);
 
 #endif
