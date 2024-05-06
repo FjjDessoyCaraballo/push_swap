@@ -1,15 +1,23 @@
 # push_swap
 
+## Description:
+This project aims to sort any given number of arguments as integers; in ascending order.
 
-## How to execute
-
+## Usage:
 1. Make files;
 2. Type ./push_swap [list of arguments, must be numbers];
 3. Program sorts and displays the movements necessary for sorting, if sorting is needed;
 
-## For testing purposes
+## For testing purposes:
+You can execute the following command in CLT ./push_swap $(seq 1 3 | sort -R | tr '\n' ' ')
 
-1. You can execute the following command in CLT ./push_swap $(seq 1 3 | sort -R | tr '\n' ' ')
+## Result:
+- Status: <span style="color:green">Completed</span>
+- Result: <span style="color:green">90%</span>
+
+## Contact: 
+- 42-email: fdessoy-@student.hive.fi
+- 42-profile: [https://profile.intra.42.fr/users/fdessoy-](https://profile.intra.42.fr/users/fdessoy-)
 
 ## Log
 ```
