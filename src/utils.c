@@ -36,9 +36,6 @@ int	add_node(t_stack **stack, int value)
 
 t_stack	*list_last(t_stack *lst)
 {
-	size_t	i;
-
-	i = 0;
 	while (lst)
 	{
 		if (!lst->next)
