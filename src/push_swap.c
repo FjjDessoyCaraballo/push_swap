@@ -56,9 +56,6 @@ void	long_check(char *str)
 
 void	instructions(t_stack **stack, int len)
 {
-	t_stack	*stack_b;
-
-	stack_b = NULL;
 	if (stack_order(stack))
 		error_handling(stack, 0);
 	else if (len == 2)
